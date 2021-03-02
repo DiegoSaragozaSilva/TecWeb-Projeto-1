@@ -20,7 +20,6 @@ while True:
     client_connection, client_address = server_socket.accept()
 
     request = client_connection.recv(1024).decode()
-    #print(f'Request string:\n{request}')
 
     route = extract_route(request)
     filepath = CUR_DIR / route

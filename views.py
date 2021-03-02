@@ -10,14 +10,12 @@ def index(request):
         for chave_valor in corpo.split('&'):
             splitted = chave_valor.split('=')
             params[splitted[0]] = splitted[1].replace('+', ' ')
-        print(params)
         if params['type'] == 'create':
             add_entry(params)
         elif params['type'] == 'edit':
             notes = load_data()
             note_to_send = list()
             for note in notes:
-                print(f'Title: {note.title} Content: {note.content}\n')
                 if note.title == params['org_title'] and note.content == params['org_content']:
                     note_to_send.extend([note.id, params['titulo'], params['detalhes']])
                     break
@@ -27,7 +25,6 @@ def index(request):
             notes = load_data()
             id = None
             for note in notes:
-                print(f'Title: {note.title} Content: {note.content}\n')
                 if note.title == params['org_title'] and note.content == params['org_content']:
                     id = note.id
                     break

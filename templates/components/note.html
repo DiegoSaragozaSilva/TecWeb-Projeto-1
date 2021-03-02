@@ -1,4 +1,7 @@
-<li>
-    <h3>{title}</h3>
-    <p>{details}</p>
-</li>
+<div class="card" onclick="changeText(this)">
+    <img src="img/delete.png" class = "delete-img" onclick="deleteNote(this)">
+    <h3 class="card-title">{title}</h3>
+    <div class="card-content">
+        <p>{details}</p>
+    </div>
+</div>

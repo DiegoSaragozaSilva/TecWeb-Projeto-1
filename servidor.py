@@ -1,6 +1,6 @@
 import socket
 from pathlib import Path
-from utils import extract_route, read_file, build_response
+from utils import create_database, extract_route, load_data, read_file, build_response
 from views import index
 
 CUR_DIR = Path(__file__).parent
@@ -12,13 +12,15 @@ server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 server_socket.bind((SERVER_HOST, SERVER_PORT))
 server_socket.listen()
 
+create_database()
+
 print(f'Servidor escutando em (ctrl+click): http://{SERVER_HOST}:{SERVER_PORT}')
 
 while True:
     client_connection, client_address = server_socket.accept()
 
     request = client_connection.recv(1024).decode()
-    print(f'Request string:\n{request}')
+    #print(f'Request string:\n{request}')
 
     route = extract_route(request)
     filepath = CUR_DIR / route

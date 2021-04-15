@@ -169,6 +169,11 @@ body {
   padding-left: 90%;
 }
 
+.error-div {
+  text-align: center;
+  margin: auto;
+}
+
 /* #ead3a7
   #9de0f5
   #ef89ba

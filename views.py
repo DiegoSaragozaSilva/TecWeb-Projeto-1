@@ -40,3 +40,6 @@ def index(request):
     notes = '\n'.join(notes_li)
 
     return build_response(load_template('index.html').format(notes=notes))
+
+def error_page(request):
+    return build_response(load_template('error.html'))

@@ -1,7 +1,7 @@
 import socket
 from pathlib import Path
 from utils import create_database, extract_route, load_data, read_file, build_response
-from views import index
+from views import index, error_page
 
 CUR_DIR = Path(__file__).parent
 SERVER_HOST = '0.0.0.0'
@@ -28,7 +28,7 @@ while True:
     elif route == '':
         response = index(request)
     else:
-        response = bytes()
+        response = error_page(request)
 
     client_connection.sendall(response)
 
